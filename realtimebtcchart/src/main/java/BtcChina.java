@@ -64,7 +64,15 @@ public class BtcChina implements MarketClient {
     @Override
     public void addTrade(Trade trade) {
         trades.add(trade);
-        System.out.println(trades);
+    }
+    
+    @Override
+    public ArrayList<Trade> allTrades() {
+        return trades;
+    }
+    
+    public void emptyList() {
+        trades.clear();
     }
 
 }

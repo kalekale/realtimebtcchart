@@ -17,6 +17,8 @@ public interface MarketClient {
     ArrayList<Trade> trades = new ArrayList();
     
     ArrayList<Trade> TradesForPrevious(long start, long end);
+    
     void addTrade(Trade trade);
     
+    ArrayList<Trade> allTrades();
 }

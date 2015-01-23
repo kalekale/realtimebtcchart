@@ -14,11 +14,9 @@ import java.util.ArrayList;
 public class Statistics {
     
     private MarketClient client;
-    private int updateInterval;
     
-    public Statistics(MarketClient client, int updateInterval) {
+    public Statistics(MarketClient client) {
         this.client = client;
-        this.updateInterval = updateInterval * 1000000;
     }
     
     public double highest(long start, long end) {
@@ -45,11 +43,13 @@ public class Statistics {
     
     public double open(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
+        System.out.println(trades);
         long firstDate = Long.MAX_VALUE;
         double open = 0;
         for (Trade t : trades) {
             if (t.getDate() < firstDate) {
                 open = t.getPrice();
+                firstDate = t.getDate();
             }
         }
         return open;
@@ -57,11 +57,12 @@ public class Statistics {
     
     public double close(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
-        long firstDate = 0;
+        long lastDate = 0;
         double close = 0;
         for (Trade t : trades) {
-            if (t.getDate() > firstDate) {
+            if (t.getDate() > lastDate) {
                 close = t.getPrice();
+                lastDate = t.getDate();
             }
         }
         return close;
