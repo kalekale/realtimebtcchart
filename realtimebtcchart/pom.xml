@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mycompany</groupId>
+    <groupId>realtimebtcchart</groupId>
     <artifactId>realtimebtcchart</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -40,8 +40,8 @@
                 <configuration>
                     <instrumentation>
                         <includes>
-                            <include>ristinolla.logiikka/*.class</include>
-                            <include>ristinolla.tekoaly/*.class</include>
+                            <include></include>
+                            <include></include>
                         </includes>
                     </instrumentation>
                 </configuration>
@@ -53,12 +53,10 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>realtimebtcchart.logiikka.*</param>
-                        <param>realtimebtcchart.tekoaly.*</param>
+
                     </targetClasses>
                     <targetTests>
-                        <param>realtimebtcchart.logiikka.*</param>
-                        <param>realtimebtcchart.tekoaly.*</param>
+
                     </targetTests>
                 </configuration>
             </plugin>

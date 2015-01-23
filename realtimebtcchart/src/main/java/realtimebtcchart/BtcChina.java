@@ -1,3 +1,5 @@
+package realtimebtcchart;
+
 
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;

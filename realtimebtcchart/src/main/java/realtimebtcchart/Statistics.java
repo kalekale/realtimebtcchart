@@ -1,3 +1,5 @@
+package realtimebtcchart;
+
 
 import java.util.ArrayList;
 
@@ -43,7 +45,6 @@ public class Statistics {
     
     public double open(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
-        System.out.println(trades);
         long firstDate = Long.MAX_VALUE;
         double open = 0;
         for (Trade t : trades) {

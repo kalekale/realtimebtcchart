@@ -1,3 +1,5 @@
+package realtimebtcchart;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,8 +19,8 @@ import static org.junit.Assert.*;
  */
 public class StatisticsTest {
 
-    BtcChina chn = new BtcChina();
-    Statistics stat = new Statistics(chn);
+    BtcChina chn2 = new BtcChina();
+    Statistics stat = new Statistics(chn2);
     Trade t0 = new Trade(1.1, 1.0, 8);
     Trade t1 = new Trade(1.5, 1.0, 9);
     Trade t2 = new Trade(1.2, 1.0, 10);
@@ -27,11 +29,11 @@ public class StatisticsTest {
     
 
     public StatisticsTest() {
-        chn.addTrade(t0);
-        chn.addTrade(t1);
-        chn.addTrade(t2);
-        chn.addTrade(t3);
-        chn.addTrade(t4);
+        chn2.addTrade(t0);
+        chn2.addTrade(t1);
+        chn2.addTrade(t2);
+        chn2.addTrade(t3);
+        chn2.addTrade(t4);
     }
 
     @Test
@@ -59,25 +61,18 @@ public class StatisticsTest {
     }
     
     @Test
-    public void openTest1() {
+    public void openTest() {
         double open = stat.open(8, 13);
         assertTrue(open == 1.1);
     }
+
+    
+    
+
+    
     
     @Test
-    public void openTest2() {
-        double open = stat.open(9, 11);
-        assertTrue(open == 1.5);
-    }
-    
-     @Test
-    public void closeTest1() {
-        double close = stat.close(8, 13);
-        assertTrue(close == 1.4);
-    }
-    
-    @Test
-    public void closeTest2() {
+    public void closeTest() {
         double close = stat.close(9, 11);
         assertTrue(close == 1.2);
     }
