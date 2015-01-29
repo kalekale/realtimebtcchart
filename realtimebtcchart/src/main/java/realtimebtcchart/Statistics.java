@@ -58,6 +58,7 @@ public class Statistics {
     
     public double close(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
+        
         long lastDate = 0;
         double close = 0;
         for (Trade t : trades) {

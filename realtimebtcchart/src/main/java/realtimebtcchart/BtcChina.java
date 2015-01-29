@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class BtcChina implements MarketClient {
@@ -36,8 +37,7 @@ public class BtcChina implements MarketClient {
                 @Override
                 public void call(Object... args) {
                     JSONObject json = (JSONObject) args[0]; //receive the trade message
-                    System.out.println(json.toString());
-                    Trade trade = parser.parseBtcChinaTrade(json.toString());
+                    Trade trade = parser.parseBtcChinaTrade(json);
                     trades.add(trade);
                 }
             }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {

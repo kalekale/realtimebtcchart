@@ -8,8 +8,11 @@ import java.util.ArrayList;
 
 public interface Graph {
     
-    ArrayList<Graphics2D> parts = new ArrayList();
-    
+    void update(long tradesUntil);
     void draw(Graphics g);
+    int getFirstY();
+    ArrayList<Line> getLines();
+
+    public double getLastX();
     
 }

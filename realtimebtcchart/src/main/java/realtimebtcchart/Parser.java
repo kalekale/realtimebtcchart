@@ -3,6 +3,10 @@ package realtimebtcchart;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,17 +24,19 @@ public class Parser {
 
     ;
     
-    public Trade parseBtcChinaTrade(String tradeString) {
-        if (tradeString.length() > 1) {
-            String[] parts = tradeString.split("\"");
-            String price = parts[11];
-            String amount = parts[3];
-            long date = (long) System.currentTimeMillis() * 1000;
+    public Trade parseBtcChinaTrade(JSONObject json) {
+        try {
+            String price = json.getString("price");
+            String amount = json.getString("amount");
+            
+            long date = (long) System.currentTimeMillis();
             Trade trade = new Trade(Double.parseDouble(price), Double.parseDouble(amount), date);
             return trade;
-        } else {
+        } catch (JSONException ex) {
+            Logger.getLogger(Parser.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
+       
     }
 
 }

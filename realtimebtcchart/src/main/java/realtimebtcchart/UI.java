@@ -15,8 +15,8 @@ import javax.swing.JFrame;
  */
 public class UI extends JFrame {
     
-    public UI() {
-        this.add(new GraphSurface(new LineGraph()));
+    public UI(Statistics stat) {
+        this.add(new GraphSurface(new LineGraph(stat)));
         this.setSize(600, 480);
         this.setTitle("Live Bitcoin Chart");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

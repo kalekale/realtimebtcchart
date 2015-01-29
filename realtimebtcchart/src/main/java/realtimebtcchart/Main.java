@@ -13,8 +13,8 @@ package realtimebtcchart;
 public class Main {
     public static void main(String[] args) throws Exception {
         BtcChina btcna = new BtcChina();
-        Statistics stats = new Statistics(btcna);
+        Statistics stat = new Statistics(btcna);
         btcna.connect();
-        UI kayttis = new UI();
+        UI kayttis = new UI(stat);
     }
 }
