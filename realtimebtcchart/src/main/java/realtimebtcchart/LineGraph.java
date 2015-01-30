@@ -40,7 +40,6 @@ public class LineGraph implements Graph {
     public void draw(Graphics g) {
         for (Line l : lines) {
             l.paintComponent(g);
-            System.out.println(l);
         }
     }
 

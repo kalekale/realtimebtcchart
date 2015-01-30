@@ -34,6 +34,7 @@ public class GraphSurface extends JPanel {
     }
 
     public void update() {
+        graph.update(System.currentTimeMillis());
         lines = graph.getLines();
         if (lines.size() > 1) {
             System.out.println("y2: " + lines.get(1).getY2());

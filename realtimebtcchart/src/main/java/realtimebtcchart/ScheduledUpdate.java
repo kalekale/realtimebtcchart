@@ -19,7 +19,6 @@ public class ScheduledUpdate extends TimerTask {
     
     @Override
     public void run() {
-        graph.update(System.currentTimeMillis());
         graphSurface.update();
         graphSurface.repaint();
     }
