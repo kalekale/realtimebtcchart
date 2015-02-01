@@ -13,7 +13,7 @@ import javax.swing.JComponent;
  *
  * @author kallelehikoinen
  */
-public class Line extends JComponent {
+public class Line implements GraphPart {
     
     private int x1;
     private int y1;
@@ -48,11 +48,13 @@ public class Line extends JComponent {
         return y2;
     }
     
-    @Override
-    public void paintComponent(Graphics g) {
-        
-        g.drawLine(x1, y1, x2, y2);
+    
+    public void draw(Graphics g, int xOffset, int yOffset) {
+        System.out.println(x1 + ", " + y1  + ", " + x2 + ", " + y2);
+        g.drawLine(x1, y1-yOffset, x2, y2-yOffset);
     }
+
+    
     
     
     

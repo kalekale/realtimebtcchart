@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class LineGraph implements Graph {
 
-    ArrayList<Line> lines = new ArrayList();
+    ArrayList<GraphPart> lines = new ArrayList();
     long previousUpdate = 0;
     Statistics stat;
 
@@ -28,19 +28,12 @@ public class LineGraph implements Graph {
     public void update(long tradesUntil) {
         double lastClose = stat.close(previousUpdate, tradesUntil);
         previousUpdate = tradesUntil;
-        Line last = lines.get(lines.size() - 1);
+        GraphPart last = lines.get(lines.size() - 1);
         double y2 = lastClose;
         int x2 = lines.size();
         int x1 = last.getX2();
         double y1 = last.getY2() / 100.0;
         lines.add(new Line(x1, y1, x2, y2));
-    }
-
-    @Override
-    public void draw(Graphics g) {
-        for (Line l : lines) {
-            l.paintComponent(g);
-        }
     }
 
     @Override
@@ -53,8 +46,17 @@ public class LineGraph implements Graph {
         return lines.get(lines.size() - 1).getX2();
     }
 
+
+
     @Override
-    public ArrayList<Line> getLines() {
+    public void draw(Graphics2D g, int xOffset, int yOffset) {
+        for (GraphPart l : lines) {
+            l.draw(g, xOffset, yOffset);
+        }
+    }
+
+    @Override
+    public ArrayList<GraphPart> getParts() {
         return this.lines;
     }
 

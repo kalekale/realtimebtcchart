@@ -4,7 +4,6 @@ import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
-import java.util.Timer;
 import javax.swing.JPanel;
 
 /*
@@ -23,10 +22,10 @@ public class GraphSurface extends JPanel {
     private double xScale = 100.0;
     private double yScale = -0.01;
     private int yOrigin;
-    private ArrayList<Line> lines;
+    private ArrayList<GraphPart> parts;
 
     public GraphSurface(Graph graph) {
-        lines = new ArrayList<Line>();
+        parts = new ArrayList<GraphPart>();
         this.graph = graph;
         Scheduler scheduler = new Scheduler(graph, this);
         cs = new CoordinateSystem(this.getWidth(), this.getHeight(), xScale, yScale);
@@ -35,39 +34,32 @@ public class GraphSurface extends JPanel {
 
     public void update() {
         graph.update(System.currentTimeMillis());
-        lines = graph.getLines();
-        if (lines.size() > 1) {
-            System.out.println("y2: " + lines.get(1).getY2());
-            yOrigin = (int) Math.round(lines.get(1).getY2() * 0.9);
+        parts = graph.getParts();
+        if (parts.size() > 1) {
+            System.out.println("y2: " + parts.get(1).getY2());
+            yOrigin = (int) Math.round(parts.get(1).getY2() * 0.95);
             System.out.println(graph.getLastX() * xScale + " >= " + this.getWidth());
             if (graph.getLastX() * xScale >= this.getWidth()) {
                 xScale = 0.9 * xScale;
                 System.out.println("xScale: " + xScale);
             }
-            if (lines.get(1).getY2() > this.getHeight()) {
-                yScale = -getHeight() / (double) Math.round(lines.get(1).getY2() / 10.0) / 2;
+            if (parts.get(1).getY2() > this.getHeight()) {
+                yScale = -getHeight() / (double) (((parts.get(1).getY2()-yOrigin)*2));
+                System.out.println("yScale: " + yScale);
             }
         }
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        if (lines.size() > 1) {
+        if (parts.size() > 1) {
             Graphics2D g2d = (Graphics2D) g;
             g2d.translate(0, this.getHeight());
             g2d.setStroke(new BasicStroke(0.01f));
             g2d.scale(xScale, yScale);
             super.paintComponent(g2d);
-            for (Line l : lines) {
-                int x1 = l.getX1();
-                int y1 = l.getY1() - yOrigin;
-                int x2 = l.getX2();
-                int y2 = l.getY2() - yOrigin;
-                g2d.drawLine(x1, y1, x2, y2);
-                System.out.println(x1 + ", " + y1 + ", " + x2 + ", " + y2);
-            }
+            graph.draw(g2d, yOrigin, yOrigin);
         }
-
     }
 
 }

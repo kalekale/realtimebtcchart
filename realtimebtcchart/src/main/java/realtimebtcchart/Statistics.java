@@ -1,6 +1,5 @@
 package realtimebtcchart;
 
-
 import java.util.ArrayList;
 
 /*
@@ -8,19 +7,18 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author kallelehikoinen
  */
 public class Statistics {
-    
+
     private MarketClient client;
-    
+
     public Statistics(MarketClient client) {
         this.client = client;
     }
-    
+
     public double highest(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         double highest = 0;
@@ -31,7 +29,7 @@ public class Statistics {
         }
         return highest;
     }
-    
+
     public double lowest(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         double lowest = Integer.MAX_VALUE;
@@ -42,23 +40,25 @@ public class Statistics {
         }
         return lowest;
     }
-    
+
     public double open(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         long firstDate = Long.MAX_VALUE;
         double open = 0;
         for (Trade t : trades) {
+            System.out.println(t);
             if (t.getDate() < firstDate) {
                 open = t.getPrice();
                 firstDate = t.getDate();
             }
         }
+        System.out.println("start: " + start + " end: " + end + " open: " + open);
         return open;
     }
-    
+
     public double close(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
-        
+
         long lastDate = 0;
         double close = 0;
         for (Trade t : trades) {
@@ -69,6 +69,5 @@ public class Statistics {
         }
         return close;
     }
-    
-    
+
 }

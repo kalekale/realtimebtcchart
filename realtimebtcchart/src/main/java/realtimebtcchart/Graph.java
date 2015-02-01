@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public interface Graph {
     
     void update(long tradesUntil);
-    void draw(Graphics g);
+    void draw(Graphics2D g, int xOffset, int yOffset);
     int getFirstY();
-    ArrayList<Line> getLines();
+    ArrayList<GraphPart> getParts();
 
     public double getLastX();
     
