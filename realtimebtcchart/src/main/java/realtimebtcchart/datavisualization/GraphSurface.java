@@ -8,13 +8,10 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 /**
- *
+ * Contains and draws a Graph. Class is updated periodically by time interval
+ * specified in Scheduler
  * @author kallelehikoinen
  */
 public class GraphSurface extends JPanel {
@@ -31,6 +28,12 @@ public class GraphSurface extends JPanel {
         Scheduler scheduler = new Scheduler(graph, this);
     }
 
+    /**
+     * Updated Graph for current time. Sets new yScale and or xScale if Graph
+     * goes out of view.
+     *
+     */
+    
     public void update() {
         graph.update(System.currentTimeMillis());
         parts = graph.getParts();
@@ -49,6 +52,10 @@ public class GraphSurface extends JPanel {
         }
     }
 
+    /**
+     * Draws Graph on this.Graphics
+     */
+    
     @Override
     public void paintComponent(Graphics g) {
         if (parts.size() > 1) {
