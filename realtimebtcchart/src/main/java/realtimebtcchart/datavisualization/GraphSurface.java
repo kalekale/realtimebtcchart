@@ -1,5 +1,7 @@
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
+import realtimebtcchart.datavisualization.GraphPart;
+import realtimebtcchart.datavisualization.Graph;
 import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,7 +20,6 @@ import javax.swing.JPanel;
 public class GraphSurface extends JPanel {
 
     private Graph graph;
-    private CoordinateSystem cs;
     private double xScale = 100.0;
     private double yScale = -0.01;
     private int yOrigin;
@@ -28,8 +29,6 @@ public class GraphSurface extends JPanel {
         parts = new ArrayList<GraphPart>();
         this.graph = graph;
         Scheduler scheduler = new Scheduler(graph, this);
-        cs = new CoordinateSystem(this.getWidth(), this.getHeight(), xScale, yScale);
-
     }
 
     public void update() {
@@ -58,8 +57,14 @@ public class GraphSurface extends JPanel {
             g2d.setStroke(new BasicStroke(0.01f));
             g2d.scale(xScale, yScale);
             super.paintComponent(g2d);
+            System.out.println("yaxis: " + ((-this.getHeight()/yScale) * 0.1));
+            g2d.drawLine(0, (int) ((-this.getHeight()/yScale) * 0.1), 6, (int) ((-this.getHeight()/yScale) * 0.1));
             graph.draw(g2d, yOrigin, yOrigin);
         }
+    }
+    
+    public void xAxis(Graphics g) {
+        
     }
 
 }

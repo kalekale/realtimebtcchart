@@ -1,6 +1,7 @@
-package realtimebtcchart;
+package realtimebtcchart.dataproccessing;
 
 
+import realtimebtcchart.dataproccessing.Trade;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.logging.Level;
@@ -28,7 +29,6 @@ public class Parser {
         try {
             String price = json.getString("price");
             String amount = json.getString("amount");
-            
             long date = (long) System.currentTimeMillis();
             Trade trade = new Trade(Double.parseDouble(price), Double.parseDouble(amount), date);
             return trade;

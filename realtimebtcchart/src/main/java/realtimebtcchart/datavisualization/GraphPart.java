@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
 import java.awt.Graphics;
 import javax.swing.JComponent;

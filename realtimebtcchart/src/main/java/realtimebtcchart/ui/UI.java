@@ -1,6 +1,9 @@
-package realtimebtcchart;
+package realtimebtcchart.ui;
 
 
+import realtimebtcchart.datavisualization.CandlestickGraph;
+import realtimebtcchart.datavisualization.GraphSurface;
+import realtimebtcchart.dataproccessing.Statistics;
 import javax.swing.JFrame;
 
 /*

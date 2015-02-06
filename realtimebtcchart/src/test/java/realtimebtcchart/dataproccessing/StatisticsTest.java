@@ -1,4 +1,4 @@
-package realtimebtcchart;
+package realtimebtcchart.dataproccessing;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,6 +6,9 @@ package realtimebtcchart;
  * and open the template in the editor.
  */
 
+import realtimebtcchart.dataproccessing.BtcChina;
+import realtimebtcchart.dataproccessing.Statistics;
+import realtimebtcchart.dataproccessing.Trade;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

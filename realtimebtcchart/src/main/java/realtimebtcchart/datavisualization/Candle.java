@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
+import realtimebtcchart.datavisualization.GraphPart;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -40,6 +41,7 @@ public class Candle implements GraphPart {
     public void draw(Graphics g, int xOffset, int yOffset) {
         System.out.println("open " + open + " close " + close + " open-close " + (open - close) + priceAction);
         System.out.println("x1: " + x1 + " open: " + (open));
+        System.out.println("y1: " + (open-yOffset));
         if (priceAction.equals(PriceAction.RISING)) {
             g.setColor(Color.green);
             g.drawRect(x1, open - yOffset, 1, Math.abs(open - close));
@@ -74,6 +76,10 @@ public class Candle implements GraphPart {
     @Override
         public int getY2() {
         return open;
+    }
+        
+    public PriceAction getPriceAction() {
+        return this.priceAction;
     }
 
     

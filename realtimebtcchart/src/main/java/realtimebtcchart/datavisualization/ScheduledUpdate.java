@@ -1,6 +1,8 @@
 
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
+import realtimebtcchart.datavisualization.GraphSurface;
+import realtimebtcchart.datavisualization.Graph;
 import java.util.TimerTask;
 
 /**

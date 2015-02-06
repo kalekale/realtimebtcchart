@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
 import java.awt.Graphics;
 import javax.swing.JComponent;
@@ -29,7 +29,7 @@ public class Line implements GraphPart {
     
     @Override
     public String toString() {
-        return "x1,y1: " + x1 + "," + y1 + " x2,y2: " + x2 + y2;
+        return "x1,y1: " + x1 + "," + y1 + " x2,y2: " + x2 + "," + y2;
     }
     
     public int getX2() {
@@ -50,7 +50,6 @@ public class Line implements GraphPart {
     
     
     public void draw(Graphics g, int xOffset, int yOffset) {
-        System.out.println(x1 + ", " + y1  + ", " + x2 + ", " + y2);
         g.drawLine(x1, y1-yOffset, x2, y2-yOffset);
     }
 

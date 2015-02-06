@@ -1,5 +1,6 @@
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
+import realtimebtcchart.dataproccessing.Statistics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;

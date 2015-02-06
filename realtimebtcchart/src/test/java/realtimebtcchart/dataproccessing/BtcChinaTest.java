@@ -1,4 +1,4 @@
-package realtimebtcchart;
+package realtimebtcchart.dataproccessing;
 
 
 
@@ -8,7 +8,8 @@ package realtimebtcchart;
  * and open the template in the editor.
  */
 
-import realtimebtcchart.BtcChina;
+import realtimebtcchart.dataproccessing.Trade;
+import realtimebtcchart.dataproccessing.BtcChina;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

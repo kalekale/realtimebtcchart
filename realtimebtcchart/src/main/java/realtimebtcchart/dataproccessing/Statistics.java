@@ -1,5 +1,6 @@
-package realtimebtcchart;
+package realtimebtcchart.dataproccessing;
 
+import realtimebtcchart.dataproccessing.Trade;
 import java.util.ArrayList;
 
 /*

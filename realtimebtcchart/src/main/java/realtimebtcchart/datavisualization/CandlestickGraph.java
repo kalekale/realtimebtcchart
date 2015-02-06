@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
+import realtimebtcchart.datavisualization.Candle;
+import realtimebtcchart.datavisualization.GraphPart;
+import realtimebtcchart.datavisualization.Graph;
+import realtimebtcchart.dataproccessing.Statistics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 

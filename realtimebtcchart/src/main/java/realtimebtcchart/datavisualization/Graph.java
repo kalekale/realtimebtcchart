@@ -1,4 +1,4 @@
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
 
 import java.awt.Graphics;

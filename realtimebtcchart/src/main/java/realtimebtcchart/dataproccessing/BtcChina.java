@@ -1,6 +1,9 @@
-package realtimebtcchart;
+package realtimebtcchart.dataproccessing;
 
 
+import realtimebtcchart.dataproccessing.Parser;
+import realtimebtcchart.dataproccessing.MarketClient;
+import realtimebtcchart.dataproccessing.Trade;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;

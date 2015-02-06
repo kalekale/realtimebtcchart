@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 
-package realtimebtcchart;
+package realtimebtcchart.datavisualization;
 
+import realtimebtcchart.datavisualization.ScheduledUpdate;
+import realtimebtcchart.datavisualization.GraphSurface;
+import realtimebtcchart.datavisualization.Graph;
 import java.util.Timer;
 
 /**

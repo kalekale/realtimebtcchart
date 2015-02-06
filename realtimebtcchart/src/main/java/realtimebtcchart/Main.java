@@ -1,5 +1,9 @@
 package realtimebtcchart;
 
+import realtimebtcchart.ui.UI;
+import realtimebtcchart.dataproccessing.BtcChina;
+import realtimebtcchart.dataproccessing.Statistics;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
