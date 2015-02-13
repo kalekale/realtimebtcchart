@@ -13,7 +13,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
- *
+ * Class CandlestickGraph consists of Candles
  * @author kallelehikoinen
  */
 public class CandlestickGraph implements Graph {
@@ -28,6 +28,15 @@ public class CandlestickGraph implements Graph {
         this.stat = stat;
     }
 
+    /**
+     * Creates new Candle for the time interval between lastUpdate and given param
+     *
+     * @param tradesUntil last date in seconds to take into account
+     * 
+     *
+     * 
+     */
+    
     @Override
     public void update(long tradesUntil) {
         int highest = (int) ((stat.highest(previousUpdate, tradesUntil)) * 100);
@@ -39,6 +48,15 @@ public class CandlestickGraph implements Graph {
         previousUpdate = tradesUntil;
     }
 
+    /**
+     * Iterates over its Candles and draws them
+     * @param  g Graphics2D object to draw on
+     * @param xOffset 
+     * @param yOffset 
+     *
+     * 
+     */
+    
     @Override
     public void draw(Graphics2D g, int xOffset, int yOffset) {
         for (GraphPart candle : candles) {

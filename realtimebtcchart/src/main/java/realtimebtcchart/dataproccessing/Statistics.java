@@ -3,13 +3,9 @@ package realtimebtcchart.dataproccessing;
 import realtimebtcchart.dataproccessing.Trade;
 import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 /**
- *
+ * Turns Trades into data which is used to draw graphs.
  * @author kallelehikoinen
  */
 public class Statistics {
@@ -20,6 +16,15 @@ public class Statistics {
         this.client = client;
     }
 
+    /**
+     * Returns highest price for selected time interval
+     *
+     * @param start time interval beginning
+     * @param end time interval end
+     *
+     * @return highest
+     */
+    
     public double highest(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         double highest = 0;
@@ -31,6 +36,15 @@ public class Statistics {
         return highest;
     }
 
+    /**
+     * Returns lowest price for selected time interval
+     *
+     * @param start time interval beginning
+     * @param end time interval end
+     *
+     * @return lowest
+     */
+    
     public double lowest(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         double lowest = Integer.MAX_VALUE;
@@ -42,6 +56,15 @@ public class Statistics {
         return lowest;
     }
 
+    /**
+     * Returns first price for selected time interval
+     *
+     * @param start time interval beginning
+     * @param end time interval end
+     *
+     * @return open
+     */
+    
     public double open(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         long firstDate = Long.MAX_VALUE;
@@ -57,6 +80,15 @@ public class Statistics {
         return open;
     }
 
+    /**
+     * Returns last price for selected time interval
+     *
+     * @param start time interval beginning
+     * @param end time interval end
+     *
+     * @return close
+     */
+    
     public double close(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
 

@@ -1,6 +1,5 @@
 package realtimebtcchart.dataproccessing;
 
-
 import realtimebtcchart.dataproccessing.Parser;
 import realtimebtcchart.dataproccessing.MarketClient;
 import realtimebtcchart.dataproccessing.Trade;
@@ -16,11 +15,22 @@ import java.util.logging.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * The class connects to the btcchina websocket.IO API and saves trades as they
+ * happen.
+ */
 public class BtcChina implements MarketClient {
 
     private String postdata = "";
     private Parser parser = new Parser();
 
+    /**
+     * Method connects to the btcchina websocket.IO API
+     *
+     * @param
+     *
+     * @return void
+     */
     public void connect() throws Exception {
         try {
             IO.Options opt = new IO.Options();
@@ -55,6 +65,14 @@ public class BtcChina implements MarketClient {
         }
     }
 
+    /**
+     * Returns trades for specified time interval
+     *
+     * @param start time interval beginning
+     * @param end time interval end
+     *
+     * @return ArrayList
+     */
     @Override
     public ArrayList<Trade> TradesForPrevious(long start, long end) {
         ArrayList<Trade> tradesSince = new ArrayList();
@@ -66,16 +84,37 @@ public class BtcChina implements MarketClient {
         return tradesSince;
     }
 
+    /**
+     * Adds trade to trades
+     *
+     * @param trade trade to add
+     *
+     * @return void
+     */
     @Override
     public void addTrade(Trade trade) {
         trades.add(trade);
     }
-    
+
+    /**
+     * Returns all trades
+     *
+     *
+     *
+     * @return ArrayList
+     */
     @Override
     public ArrayList<Trade> allTrades() {
         return trades;
     }
-    
+
+    /**
+     * clears all trades
+     *
+     *
+     *
+     * @return void
+     */
     public void emptyList() {
         trades.clear();
     }

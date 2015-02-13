@@ -10,7 +10,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- *
+ * A Candle is a part of a CandlestickGraph. The candles form depends on its
+ * open, close, highest and lowest values
  * @author kallelehikoinen
  */
 public class Candle implements GraphPart {
@@ -37,6 +38,17 @@ public class Candle implements GraphPart {
         }
     }
 
+    /**
+     * Draws the Candle on the Graphics given as param
+     *
+     * @param g Graphics to draw candle on
+     * @param xOffset value substracted from x1
+     * @param yOffset value substracted from open if priceAction is RISING and 
+     * from close is priceAction is FALLING
+     *
+     * 
+     */
+    
     @Override
     public void draw(Graphics g, int xOffset, int yOffset) {
         System.out.println("open " + open + " close " + close + " open-close " + (open - close) + priceAction);
