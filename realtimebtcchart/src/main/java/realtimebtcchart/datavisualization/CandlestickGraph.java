@@ -81,4 +81,16 @@ public class CandlestickGraph implements Graph {
         return candles.get(candles.size()-1).getX2();
     }
 
+    @Override
+    public void draw(Graphics2D g2d, int yOrigin, int xOrigin, double yScale, double xScale) {
+        for (GraphPart graphPart : candles) {
+            graphPart.draw(g2d, yOrigin, xOrigin, yScale, xScale);
+        }
+    }
+
+    @Override
+    public void newInterval(long interval, long until) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

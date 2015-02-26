@@ -35,7 +35,6 @@ public class Parser {
             Trade trade = new Trade(Double.parseDouble(price), Double.parseDouble(amount), date);
             return trade;
         } catch (JSONException ex) {
-            Logger.getLogger(Parser.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
        

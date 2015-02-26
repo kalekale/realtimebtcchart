@@ -61,4 +61,25 @@ public class LineGraph implements Graph {
         return this.lines;
     }
 
+    @Override
+    public void draw(Graphics2D g2d, int yOrigin, int xOrigin, double yScale, double xScale) {
+        for (GraphPart l : lines) {
+            l.draw(g2d, yOrigin, xOrigin, yScale, xScale);
+        }
+    }
+
+    @Override
+    public void newInterval(long interval, long until) {
+        lines.clear();
+        Line l1 = new Line(0, 0, 0, 0);
+        lines.add(l1);
+        long startTime = stat.firstTrade();
+        previousUpdate = 0;
+        long tradesUntil = startTime+interval;
+        while (previousUpdate+interval<=until) {
+            update(startTime+interval);
+        }
+        
+    }
+
 }

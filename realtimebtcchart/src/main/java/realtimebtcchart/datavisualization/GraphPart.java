@@ -7,6 +7,7 @@
 package realtimebtcchart.datavisualization;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
 /**
@@ -20,6 +21,8 @@ public interface GraphPart{
     public int getX2();
 
     public int getY2();
+
+    public void draw(Graphics2D g2d, int yOrigin, int xOrigin, double yScale, double xScale);
 
 
     

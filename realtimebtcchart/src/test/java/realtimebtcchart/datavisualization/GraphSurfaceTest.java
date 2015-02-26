@@ -59,33 +59,9 @@ public class GraphSurfaceTest {
     public void tearDown() {
     }
 
-    @Test
-    public void updateYMiddleTest() {
-        chn2.addTrade(t0);
-        gs.update();
-        assertTrue(gs.getYMiddle() == graph.getParts().get(1).getY2() / 100 * 100);
-    }
+ 
     
-    @Test
-    public void updateYOriginTest() {
-        chn2.addTrade(t0);
-        gs.update();
-        assertTrue(gs.getYOrigin() == (int) Math.round(gs.getYMiddle() - 5000));
-    }
-    
-    @Test
-    public void updateYscaleTest() {
-        chn2.addTrade(t0);
-        gs.update();
-        assertTrue(gs.getYScale() == -gs.getHeight() / (double) (((gs.getYMiddle() - gs.getYOrigin()) * 2)));
-    }
-    
-    @Test
-    public void updateXscaleTest() {
-        chn2.addTrade(t0);
-        gs.update();
-        assertTrue(gs.getXScale() == 90.0);
-    }
+
     
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:

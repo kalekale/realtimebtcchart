@@ -14,5 +14,9 @@ public interface Graph {
     ArrayList<GraphPart> getParts();
 
     public double getLastX();
+
+    public void draw(Graphics2D g2d, int yOrigin, int xOrigin, double yScale, double xScale);
+    
+    public void newInterval(long interval, long until);
     
 }

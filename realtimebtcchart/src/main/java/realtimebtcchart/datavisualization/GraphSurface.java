@@ -18,16 +18,33 @@ import javax.swing.JPanel;
 public class GraphSurface extends JPanel {
 
     private Graph graph;
-    private double xScale = 100.0;
-    private double yScale = -0.01;
-    private int yOrigin;
-    private int yMiddle;
+    private double xScale = 10.0;
+    private double yScale = -0.1;
+    private int yOrigin = 144000;
+    private int yMiddle = 0;
     private ArrayList<GraphPart> parts;
-
+    private int xOrigin = 0;
+    
+    public void moveLeft() {
+        xOrigin -= 1;
+        paintComponent(getGraphics());
+    }
+    
+    public void moveRight() {
+        xOrigin += 1;
+        paintComponent(getGraphics());
+    }
+    
     public GraphSurface(Graph graph) {
         parts = new ArrayList<>();
         this.graph = graph;
-        Scheduler scheduler = new Scheduler(graph, this);
+        Scheduler scheduler = new Scheduler(graph, this, 1);
+    }
+    
+    public GraphSurface(Graph graph, int updateInterval) {
+        parts = new ArrayList<>();
+        this.graph = graph;
+        Scheduler scheduler = new Scheduler(graph, this, updateInterval);
     }
     
     public double getXScale() {
@@ -54,16 +71,6 @@ public class GraphSurface extends JPanel {
     public void update() {
         graph.update(System.currentTimeMillis());
         parts = graph.getParts();
-        if (parts.size() > 1) {
-            yMiddle = parts.get(1).getY2() / 100 * 100;
-            yOrigin = (int) Math.round(yMiddle - 5000);
-            if (graph.getLastX() * xScale >= this.getWidth()) {
-                xScale = 0.9 * xScale;
-            }
-            if (parts.get(1).getY2() > this.getHeight()) {
-                yScale = -getHeight() / (double) (((yMiddle - yOrigin) * 2));
-            }
-        }
     }
 
     /**
@@ -71,13 +78,13 @@ public class GraphSurface extends JPanel {
      */
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         if (parts.size() > 1) {
             Graphics2D g2d = (Graphics2D) g;
             g2d.translate(0, this.getHeight());
             g2d.setStroke(new BasicStroke(0.01f));
-            g2d.scale(xScale, yScale);
             super.paintComponent(g2d);
-            graph.draw(g2d, yOrigin, yOrigin);
+            graph.draw(g2d, yOrigin, xOrigin, yScale, xScale);
             drawYScale(g2d);
         }
     }
@@ -87,7 +94,8 @@ public class GraphSurface extends JPanel {
         g2d.setColor(Color.black);
         g2d.setStroke(new BasicStroke(0.005f));
         for (double d = 0.1; d < 1; d += 0.1) {
-            g2d.drawLine(0, (int) ((-this.getHeight() / yScale) * d), 6, (int) ((-this.getHeight() / yScale) * d));
+            g2d.drawLine(0, (int)(-this.getHeight() * d),(int) this.getWidth()+xOrigin, (int)(-this.getHeight() * d));
+            g2d.drawString(String.valueOf((yOrigin+this.getHeight()/yScale * -d)/100.0), 0, (int)(-this.getHeight() * d));
         }
     }
 

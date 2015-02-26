@@ -52,6 +52,7 @@ public class BtcChina implements MarketClient {
                     JSONObject json = (JSONObject) args[0]; //receive the trade message
                     Trade trade = parser.parseBtcChinaTrade(json);
                     trades.add(trade);
+                    System.out.println(trade);
                 }
             }).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
                 @Override

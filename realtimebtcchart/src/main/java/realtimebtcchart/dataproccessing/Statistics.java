@@ -35,6 +35,17 @@ public class Statistics {
         }
         return highest;
     }
+    
+    public long firstTrade() {
+        long earliest = Integer.MAX_VALUE;
+        ArrayList<Trade> trades= client.TradesForPrevious(0, System.currentTimeMillis());
+        for (Trade t : trades) {
+            if (t.getDate()<earliest) {
+                earliest = t.getDate();
+            }
+        }
+        return earliest;
+    }
 
     /**
      * Returns lowest price for selected time interval

@@ -17,9 +17,9 @@ import java.util.Timer;
  */
 public class Scheduler {
     
-    public Scheduler(Graph graph, GraphSurface gs) {
+    public Scheduler(Graph graph, GraphSurface gs, int updateInterval) {
         Timer timer = new Timer();
-        timer.schedule(new ScheduledUpdate(graph, gs), 10*1000, 60*1000);
+        timer.schedule(new ScheduledUpdate(graph, gs), updateInterval*60000, updateInterval*60000);
     }
     
 }

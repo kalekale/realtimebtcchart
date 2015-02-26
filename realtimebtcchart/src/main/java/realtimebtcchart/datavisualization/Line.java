@@ -7,6 +7,7 @@
 package realtimebtcchart.datavisualization;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
 /**
@@ -51,6 +52,16 @@ public class Line implements GraphPart {
     
     public void draw(Graphics g, int xOffset, int yOffset) {
         g.drawLine(x1, y1-yOffset, x2, y2-yOffset);
+    }
+
+    @Override
+    public void draw(Graphics2D g2d, int yOrigin, int xOrigin, double yScale, double xScale) {
+        int scaledX1 = (int) ((x1-xOrigin) * xScale);
+        int scaledY1 = (int) ((y1-yOrigin) * yScale);
+        int scaledX2 = (int) ((x2-xOrigin) * xScale);
+        int scaledY2 = (int) ((y2-yOrigin) * yScale);
+        System.out.println("scaled coordinates: " + scaledX1 + " " + scaledY1 + " " + scaledX2 + " " + scaledY2);
+        g2d.drawLine(scaledX1, scaledY1, scaledX2, scaledY2);
     }
 
     
