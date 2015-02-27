@@ -1,6 +1,5 @@
 package realtimebtcchart.dataproccessing;
 
-
 import realtimebtcchart.dataproccessing.Trade;
 import java.util.ArrayList;
 import java.util.Map;
@@ -9,9 +8,9 @@ import java.util.logging.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 /**
  * Parses the data from MarketClient into trades
+ *
  * @author kallelehikoinen
  */
 public class Parser {
@@ -19,7 +18,6 @@ public class Parser {
     public Parser() {
     }
 
-    
     /**
      * Parses JSONObject into Trade
      *
@@ -37,7 +35,7 @@ public class Parser {
         } catch (JSONException ex) {
             return null;
         }
-       
+
     }
 
 }

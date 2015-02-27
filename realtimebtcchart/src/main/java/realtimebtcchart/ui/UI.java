@@ -27,7 +27,7 @@ import realtimebtcchart.datavisualization.LineGraph;
  * @author kallelehikoinen
  */
 public class UI extends JFrame {
-    
+
     private Statistics stat;
     private GraphSurface gs;
     private JButton left;
@@ -72,7 +72,7 @@ public class UI extends JFrame {
         });
         return button;
     }
-    
+
     public JButton stopButton() {
         JButton button = new JButton("Stop");
         button.addActionListener(new ActionListener() {
@@ -99,7 +99,7 @@ public class UI extends JFrame {
         }
         gs.setPreferredSize(new Dimension(600, 480));
         gs.setBackground(Color.white);
-        gs.setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
+        gs.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         this.add(gs);
         left = (moveLeftButton());
         right = (moveRightButton());
@@ -107,15 +107,13 @@ public class UI extends JFrame {
         this.add(right);
         this.revalidate();
     }
-    
+
     private void removeComponent(Component c) {
         remove(c);
         revalidate();
         repaint();
     }
-    
-    
-    
+
     public JButton moveLeftButton() {
         JButton button = new JButton("Move Left");
         button.addActionListener(new ActionListener() {
@@ -126,7 +124,7 @@ public class UI extends JFrame {
         });
         return button;
     }
-    
+
     public JButton moveRightButton() {
         JButton button = new JButton("Move Right");
         button.addActionListener(new ActionListener() {

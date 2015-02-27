@@ -24,72 +24,78 @@ public class GraphSurface extends JPanel {
     private int yMiddle = 0;
     private ArrayList<GraphPart> parts;
     private int xOrigin = 0;
-    
+
     public void setYorigin() {
-        int yOrigin = graph.getFirstY();
-        
-        yOrigin = yOrigin/100;
+        yOrigin = graph.getFirstY();
+
+        yOrigin = yOrigin / 100;
         yOrigin = yOrigin * 100;
+        yOrigin -= yOrigin * -yScale * 0.2;
     }
-    
+
+    /**
+     * Shifts the view to the left
+     */
     public void moveLeft() {
         xOrigin -= 1;
         System.out.println(xOrigin);
         paintComponent(getGraphics());
     }
-    
+
+    /**
+     * Shifts the view to the right
+     */
     public void moveRight() {
         xOrigin += 1;
         paintComponent(getGraphics());
     }
-    
+
     public GraphSurface(Graph graph) {
         parts = new ArrayList<>();
         this.graph = graph;
         Scheduler scheduler = new Scheduler(graph, this, 1);
     }
-    
+
     public GraphSurface(Graph graph, int updateInterval) {
         parts = new ArrayList<>();
         this.graph = graph;
         Scheduler scheduler = new Scheduler(graph, this, updateInterval);
     }
-    
+
     public double getXScale() {
         return this.xScale;
     }
-    
+
     public int getYOrigin() {
         return this.yOrigin;
     }
-    
+
     public double getYScale() {
         return this.yScale;
     }
-    
+
     public int getXOrigin() {
         return xOrigin;
     }
-    
+
     public void setXScale(double scale) {
         this.xScale = scale;
     }
-    
+
     public void setXOrigin(int xOrigin) {
         this.xOrigin = xOrigin;
     }
-    
+
     public void setYOrigin(int yOrigin) {
         this.yOrigin = yOrigin;
     }
-    
+
     public void setYScale(double scale) {
         this.yScale = scale;
     }
 
     /**
-     * Updated Graph for current time. Sets new yScale and or xScale if Graph
-     * goes out of view.
+     * Updates Graph for current time.
      *
      */
     public void update() {
@@ -114,12 +120,17 @@ public class GraphSurface extends JPanel {
         }
     }
 
+    /**
+     * Draws y-axis scale
+     *
+     * @param g Graphic object to draw y-axis scale on
+     */
     public void drawYScale(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.black);
         for (double d = 0.1; d < 1; d += 0.1) {
-            g2d.drawLine(0, (int)(-this.getHeight() * d),(int) this.getWidth()+xOrigin, (int)(-this.getHeight() * d));
-            g2d.drawString(String.valueOf((yOrigin+this.getHeight()/yScale * -d)/100.0), 0, (int)(-this.getHeight() * d));
+            g2d.drawLine(0, (int) (-this.getHeight() * d), (int) this.getWidth() + xOrigin, (int) (-this.getHeight() * d));
+            g2d.drawString(String.valueOf((yOrigin + this.getHeight() / yScale * -d) / 100.0), 0, (int) (-this.getHeight() * d));
         }
     }
 

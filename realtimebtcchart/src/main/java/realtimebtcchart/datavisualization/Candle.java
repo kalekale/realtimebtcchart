@@ -40,16 +40,6 @@ public class Candle implements GraphPart {
         }
     }
 
-    /**
-     * Draws the Candle on the Graphics given as param
-     *
-     * @param g Graphics to draw candle on
-     * @param xOffset value substracted from x1
-     * @param yOffset value substracted from open if priceAction is RISING and
-     * from close is priceAction is FALLING
-     *
-     *
-     */
     @Override
     public String toString() {
         return "open: " + open + " close: " + close + " x1: " + x1;
@@ -77,7 +67,17 @@ public class Candle implements GraphPart {
         return this.priceAction;
     }
 
-
+    /**
+     * Draws the Candle on the Graphics given as param
+     *
+     * @param g Graphics to draw candle on
+     * @param xOffset value substracted from x1
+     * @param yOffset value substracted from open if priceAction is RISING and
+     * from close is priceAction is FALLING
+     * @param xScale multiplier for x coordinates and width
+     * @param yScale multiplier for y coordinates and height
+     *
+     */
     @Override
     public void draw(Graphics2D g2d, int yOrigin, int xOrigin, double yScale, double xScale) {
         System.out.println("open: " + open + " close: " + close + " high: " + highest + " low: " + lowest);

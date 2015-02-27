@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.7">
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/dataproccessing/BtcChina.java">
+<error line="78" column="29" severity="error" message="Name &apos;TradesForPrevious&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/dataproccessing/MarketClient.java">
+<error line="13" column="22" severity="error" message="Name &apos;trades&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
+<error line="15" column="22" severity="error" message="Name &apos;TradesForPrevious&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/dataproccessing/Parser.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/dataproccessing/Statistics.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/dataproccessing/Trade.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/Candle.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/CandlestickGraph.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/Graph.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/GraphPart.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/GraphSurface.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/Line.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/LineGraph.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/PriceAction.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/ScheduledUpdate.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/datavisualization/Scheduler.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/Main.java">
+</file>
+<file name="/Users/kallelehikoinen/Documents/realtimebtcchart/realtimebtcchart/src/main/java/realtimebtcchart/ui/UI.java">
+</file>
+</checkstyle>

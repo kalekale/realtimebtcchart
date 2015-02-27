@@ -3,9 +3,9 @@ package realtimebtcchart.dataproccessing;
 import realtimebtcchart.dataproccessing.Trade;
 import java.util.ArrayList;
 
-
 /**
  * Turns Trades into data which is used to draw graphs.
+ *
  * @author kallelehikoinen
  */
 public class Statistics {
@@ -24,7 +24,6 @@ public class Statistics {
      *
      * @return highest
      */
-    
     public double highest(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         double highest = 0;
@@ -35,12 +34,12 @@ public class Statistics {
         }
         return highest;
     }
-    
+
     public long firstTrade() {
         long earliest = Integer.MAX_VALUE;
-        ArrayList<Trade> trades= client.TradesForPrevious(0, System.currentTimeMillis());
+        ArrayList<Trade> trades = client.TradesForPrevious(0, System.currentTimeMillis());
         for (Trade t : trades) {
-            if (t.getDate()<earliest) {
+            if (t.getDate() < earliest) {
                 earliest = t.getDate();
             }
         }
@@ -55,7 +54,6 @@ public class Statistics {
      *
      * @return lowest
      */
-    
     public double lowest(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         double lowest = Integer.MAX_VALUE;
@@ -75,7 +73,6 @@ public class Statistics {
      *
      * @return open
      */
-    
     public double open(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
         long firstDate = Long.MAX_VALUE;
@@ -99,7 +96,6 @@ public class Statistics {
      *
      * @return close
      */
-    
     public double close(long start, long end) {
         ArrayList<Trade> trades = client.TradesForPrevious(start, end);
 

@@ -5,5 +5,7 @@ pvm: 25.1.2015. aika 10 tuntia aihe: Luokat Scheduler, ScheduledUpdate, GraphSur
 pvm: 29.1.2015 aika: 10 tuntia aihe: Viivakuvaajan piirtäminen onnistuu
 pvm: 5.2.2015 aika: 8 tuntia aihe: Kynttiläkaaviov piirtäminen onnistuu
 pvm: 13.2.2015 aika: 5 tuntia aihe: Testejä ja kaavioita
-
-
+pvm: 22.2.2015 aika: 8 tuntia aihe: Käyttöliittymä
+pvm: 23.2.2015 aika: 8 tuntia aihe: Käyttöliittymä
+pvm: 26.2.2015 aika: 8 tuntia aihe: Käyttöliittymä
+pvm: 127.2.2015 aika: 8 tuntia aihe: Javadoc ja testejä

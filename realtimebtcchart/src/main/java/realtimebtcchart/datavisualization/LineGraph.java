@@ -11,14 +11,15 @@ import java.util.ArrayList;
  * and open the template in the editor.
  */
 /**
+ * Class LineGraph implements Graph and consists of Lines.
  *
  * @author kallelehikoinen
  */
 public class LineGraph implements Graph {
 
-    ArrayList<GraphPart> lines = new ArrayList();
-    long previousUpdate = 0;
-    Statistics stat;
+    private ArrayList<GraphPart> lines = new ArrayList();
+    private long previousUpdate = 0;
+    private Statistics stat;
 
     public LineGraph(Statistics stat) {
         Line l1 = new Line(0, 0, 0, 0);
@@ -26,6 +27,11 @@ public class LineGraph implements Graph {
         this.stat = stat;
     }
 
+    /**
+     * Creates a new Line with trades between previousUpdate and tradesUntil
+     *
+     * @param tradesUntil
+     */
     public void update(long tradesUntil) {
         double lastClose = stat.close(previousUpdate, tradesUntil);
         previousUpdate = tradesUntil;
@@ -47,19 +53,26 @@ public class LineGraph implements Graph {
         return lines.get(lines.size() - 1).getX2();
     }
 
-
-
     @Override
     public ArrayList<GraphPart> getParts() {
         return this.lines;
     }
 
+    /**
+     * Draws the LineGraph Lines on the Graphics given as param
+     *
+     * @param g Graphics to draw Lines on
+     * @param xOffset value substracted from Line x values
+     * @param yOffset value substracted from Line y values
+     * @param xScale multiplier for Line x values
+     * @param yScale multiplier for Line y values
+     *
+     */
     @Override
     public void draw(Graphics2D g2d, int yOrigin, int xOrigin, double yScale, double xScale) {
         for (GraphPart l : lines) {
             l.draw(g2d, yOrigin, xOrigin, yScale, xScale);
         }
     }
-
 
 }
