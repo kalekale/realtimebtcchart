@@ -69,22 +69,22 @@ public class CandleTest {
 
     @Test
     public void drawRisingTest() {
-        Graphics g = gs.getGraphics();
-        rising.draw(g, 0, 0);
+        Graphics2D g = (Graphics2D) gs.getGraphics();
+        rising.draw(g, 0, 0, 1, 1);
         assertTrue(g.getColor().equals(Color.GREEN));
     }
 
     @Test
     public void drawFallingTest() {
-        Graphics g = gs.getGraphics();
-        falling.draw(g, 0, 0);
+        Graphics2D g = (Graphics2D) gs.getGraphics();
+        falling.draw(g, 0, 0,1,1);
         assertTrue(g.getColor().equals(Color.RED));
     }
 
     @Test
     public void drawNoActionTest() {
-        Graphics g = gs.getGraphics();
-        noAction.draw(g, 0, 0);
+        Graphics2D g = (Graphics2D) gs.getGraphics();
+        noAction.draw(g, 0, 0,1,1);
         assertTrue(g.getColor().equals(Color.BLACK));
     }
 

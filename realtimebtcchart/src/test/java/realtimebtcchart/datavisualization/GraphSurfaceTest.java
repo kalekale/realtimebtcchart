@@ -6,12 +6,20 @@
 
 package realtimebtcchart.datavisualization;
 
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.DebugGraphics;
+import javax.swing.JFrame;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.atLeastOnce;
 import realtimebtcchart.dataproccessing.BtcChina;
 import realtimebtcchart.dataproccessing.MarketClient;
 import realtimebtcchart.dataproccessing.Statistics;
@@ -27,6 +35,7 @@ public class GraphSurfaceTest {
     MarketClient chn2;
     Statistics stat;
     Graph graph;
+    GraphSurface gs2;
     Trade t0 = new Trade(1.1, 1.0, 8);
     Trade t1 = new Trade(1.5, 1.0, 9);
     Trade t2 = new Trade(1.2, 1.0, 10);
@@ -53,12 +62,35 @@ public class GraphSurfaceTest {
         stat = new Statistics(chn2);
         graph = new CandlestickGraph (stat);
         gs = new GraphSurface(graph);
+        gs2 = new GraphSurface(graph, 100);
+        JFrame jframe = new JFrame();
+        jframe.add(gs);
+        jframe.setVisible(true);
+        gs.setVisible(true);
     }
     
     @After
     public void tearDown() {
     }
 
+    @Test
+    public void drawYscaletest() {
+        gs.getGraphics().setColor(Color.red);
+        gs.drawYScale(gs.getGraphics());
+        assertTrue(gs.getGraphics().getColor().equals(Color.BLACK));
+    }
+    
+    @Test
+    public void moveLeftTest() {
+        gs.moveLeft();
+        assertTrue(gs.getXOrigin()==-1);
+    }
+    
+    @Test
+    public void moveRightTest() {
+        gs.moveRight();
+        assertTrue(gs.getXOrigin()==1);
+    }
  
     
 

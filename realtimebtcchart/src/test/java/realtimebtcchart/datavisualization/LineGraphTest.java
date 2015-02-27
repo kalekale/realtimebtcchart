@@ -76,11 +76,7 @@ public class LineGraphTest {
         assertTrue(graph.getParts().size() == 5);
     }
 
-    @Test
-    public void getFirstYTest() {
-        graph.update(12);
-        assertTrue(graph.getFirstY() == 0);
-    }
+    
 
     @Test
     public void getLastXTest() {

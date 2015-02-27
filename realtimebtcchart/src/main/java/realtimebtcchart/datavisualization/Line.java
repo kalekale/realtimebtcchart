@@ -60,7 +60,6 @@ public class Line implements GraphPart {
         int scaledY1 = (int) ((y1-yOrigin) * yScale);
         int scaledX2 = (int) ((x2-xOrigin) * xScale);
         int scaledY2 = (int) ((y2-yOrigin) * yScale);
-        System.out.println("scaled coordinates: " + scaledX1 + " " + scaledY1 + " " + scaledX2 + " " + scaledY2);
         g2d.drawLine(scaledX1, scaledY1, scaledX2, scaledY2);
     }
 

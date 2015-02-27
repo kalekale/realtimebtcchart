@@ -77,21 +77,6 @@ public class Candle implements GraphPart {
         return this.priceAction;
     }
 
-    @Override
-    public void draw(Graphics g, int xOffset, int yOffset) {
-        System.out.println("open " + open + " close " + close + " open-close " + (open - close) + priceAction);
-        System.out.println("x1: " + x1 + " open: " + (open));
-        System.out.println("y1: " + (open - yOffset));
-        if (priceAction.equals(PriceAction.RISING)) {
-            g.setColor(Color.green);
-            g.drawRect(x1, open - yOffset, 1, Math.abs(open - close));
-        } else if (priceAction.equals(PriceAction.FALLING)) {
-            g.setColor(Color.red);
-            g.drawRect(x1, close - yOffset, 1, Math.abs(open - close));
-        } else {
-            g.drawRect(x1, open - yOffset, 1, 1);
-        }
-    }
 
     @Override
     public void draw(Graphics2D g2d, int yOrigin, int xOrigin, double yScale, double xScale) {

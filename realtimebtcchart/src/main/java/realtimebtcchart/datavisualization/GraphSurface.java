@@ -20,13 +20,21 @@ public class GraphSurface extends JPanel {
     private Graph graph;
     private double xScale = 10.0;
     private double yScale = -0.1;
-    private int yOrigin = 154000;
+    private int yOrigin = 0;
     private int yMiddle = 0;
     private ArrayList<GraphPart> parts;
     private int xOrigin = 0;
     
+    public void setYorigin() {
+        int yOrigin = graph.getFirstY();
+        
+        yOrigin = yOrigin/100;
+        yOrigin = yOrigin * 100;
+    }
+    
     public void moveLeft() {
         xOrigin -= 1;
+        System.out.println(xOrigin);
         paintComponent(getGraphics());
     }
     
@@ -51,16 +59,32 @@ public class GraphSurface extends JPanel {
         return this.xScale;
     }
     
-    public int getYMiddle() {
-        return this.yMiddle;
-    }
-    
     public int getYOrigin() {
         return this.yOrigin;
     }
     
     public double getYScale() {
         return this.yScale;
+    }
+    
+    public int getXOrigin() {
+        return xOrigin;
+    }
+    
+    public void setXScale(double scale) {
+        this.xScale = scale;
+    }
+    
+    public void setXOrigin(int xOrigin) {
+        this.xOrigin = xOrigin;
+    }
+    
+    public void setYOrigin(int yOrigin) {
+        this.yOrigin = yOrigin;
+    }
+    
+    public void setYScale(double scale) {
+        this.yScale = scale;
     }
 
     /**
@@ -80,6 +104,7 @@ public class GraphSurface extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (parts.size() > 1) {
+            setYorigin();
             Graphics2D g2d = (Graphics2D) g;
             g2d.translate(0, this.getHeight());
             g2d.setStroke(new BasicStroke(0.01f));
@@ -92,7 +117,6 @@ public class GraphSurface extends JPanel {
     public void drawYScale(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.black);
-        g2d.setStroke(new BasicStroke(0.005f));
         for (double d = 0.1; d < 1; d += 0.1) {
             g2d.drawLine(0, (int)(-this.getHeight() * d),(int) this.getWidth()+xOrigin, (int)(-this.getHeight() * d));
             g2d.drawString(String.valueOf((yOrigin+this.getHeight()/yScale * -d)/100.0), 0, (int)(-this.getHeight() * d));

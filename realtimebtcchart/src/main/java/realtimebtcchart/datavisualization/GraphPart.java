@@ -16,7 +16,6 @@ import javax.swing.JComponent;
  */
 public interface GraphPart{
     
-    void draw(Graphics g, int xOffset, int yOffset);
 
     public int getX2();
 

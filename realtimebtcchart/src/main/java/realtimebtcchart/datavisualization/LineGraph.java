@@ -39,7 +39,7 @@ public class LineGraph implements Graph {
 
     @Override
     public int getFirstY() {
-        return lines.get(0).getY2();
+        return lines.get(1).getY2();
     }
 
     @Override
@@ -48,13 +48,6 @@ public class LineGraph implements Graph {
     }
 
 
-
-    @Override
-    public void draw(Graphics2D g, int xOffset, int yOffset) {
-        for (GraphPart l : lines) {
-            l.draw(g, xOffset, yOffset);
-        }
-    }
 
     @Override
     public ArrayList<GraphPart> getParts() {
@@ -68,18 +61,5 @@ public class LineGraph implements Graph {
         }
     }
 
-    @Override
-    public void newInterval(long interval, long until) {
-        lines.clear();
-        Line l1 = new Line(0, 0, 0, 0);
-        lines.add(l1);
-        long startTime = stat.firstTrade();
-        previousUpdate = 0;
-        long tradesUntil = startTime+interval;
-        while (previousUpdate+interval<=until) {
-            update(startTime+interval);
-        }
-        
-    }
 
 }
