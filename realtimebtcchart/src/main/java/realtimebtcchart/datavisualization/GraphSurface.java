@@ -20,7 +20,7 @@ public class GraphSurface extends JPanel {
     private Graph graph;
     private double xScale = 10.0;
     private double yScale = -0.1;
-    private int yOrigin = 144000;
+    private int yOrigin = 154000;
     private int yMiddle = 0;
     private ArrayList<GraphPart> parts;
     private int xOrigin = 0;
